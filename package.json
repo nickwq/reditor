@@ -1,0 +1,33 @@
+{
+  "name": "reditor",
+  "version": "1.0.0",
+  "description": "complex but quicker editor build using react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickwq/reditor.git"
+  },
+  "keywords": [
+    "editor",
+    "react",
+    "webpack"
+  ],
+  "author": "Qian WANG",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nickwq/reditor/issues"
+  },
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "homepage": "https://github.com/nickwq/reditor#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^2.22.0",
+    "node-libs-browser": "^1.0.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
