@@ -16,10 +16,23 @@ module.exports = {
         inline: true,
         progress: true
     },
+    resolve: {
+        extensions: ['', '.js', '.jsx']
+    },
+    module: {
+      loaders: [{
+          test: /\.jsx?$/,
+          loader:'babel',
+          query: {
+              presets: ['es2015','react'],
+              cacheDirectory: true
+          }
+      }]
+    },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new HtmlwebpackPlugin({
             title: 'reditor'
         })
     ]
-}
+};
