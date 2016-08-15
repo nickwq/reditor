@@ -4,8 +4,9 @@ var HtmlwebpackPlugin = require('html-webpack-plugin');
 
 var ROOT_PATH = path.resolve(__dirname);
 
+var appPath = path.resolve(ROOT_PATH, 'app');
 module.exports = {
-    entry: path.resolve(ROOT_PATH, 'app'),
+    entry: appPath,
     output: {
         path: path.resolve(ROOT_PATH, 'build'),
         filename: 'bundle.js'
@@ -20,14 +21,22 @@ module.exports = {
         extensions: ['', '.js', '.jsx']
     },
     module: {
-      loaders: [{
-          test: /\.jsx?$/,
-          loader:'babel',
-          query: {
-              presets: ['es2015','react'],
-              cacheDirectory: true
-          }
-      }]
+        loaders: [
+            {
+                test: /\.jsx?$/,
+                loader: 'babel',
+                query: {
+                    presets: ['es2015', 'react'],
+                    cacheDirectory: true
+                }
+            },
+            {
+                test: /\.css$/,
+                loaders: ['style', 'css'],
+                include: appPath
+            }
+
+        ]
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
