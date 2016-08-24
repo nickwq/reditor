@@ -1,24 +1,30 @@
 import React from 'react';
 import Schema from './schema.jsx';
 import Table from './table.jsx';
+import {connect} from 'react-redux';
 
-export default class Reditor extends React.Component {
+class Reditor extends React.Component {
     render() {
-        const components = [
-            {
-                name: 'BIT',
-                data: 1
-            },
-            {
-                name: "LWD",
-                data: 2
+        const { dispatch, selectHandler, components } = this.props;
+        const createAction = function(index) {
+            console.log('loging... index', index)
+
+            return {
+                type:'select',
+                index: index
             }
-        ];
+        };
         return (
             <div>
-                <Schema comps={components}></Schema>
-                <Table comps={components}></Table>
+                <Schema onSelect={index=>dispatch(createAction(index))} comps={components}></Schema>
+                <Table onSelect={index=>dispatch(createAction(index))} comps={components}></Table>
             </div>
         );
     }
 }
+
+function select(state) {
+    return state;
+}
+
+export default connect(select)(Reditor)

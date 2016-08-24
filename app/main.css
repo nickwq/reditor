@@ -1,3 +1,10 @@
 body {
     background: lightblue;
+
+
 }
+
+.selected-component {
+    color: red;
+}
+
