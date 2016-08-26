@@ -39,14 +39,6 @@ const reditorApp = combineReducers({
 });
 let store = createStore(reditorApp);
 
-
-// store.subscribe(() => {
-//     document.body.innerHTML = store.getState();
-// });
-// document.addEventListener('click', () =>{
-//     store.dispatch({type:'INCREMENT'});
-// });
-
 var app = document.createElement('div');
 app.setAttribute("id", "app");
 document.body.appendChild(app);

@@ -1,7 +1,20 @@
 body {
     background: lightblue;
 
+}
 
+#reditor-body {
+    display: flex;
+}
+
+#schema-body {
+    width: 200px;
+    background-color: lightyellow;
+}
+
+#table-body {
+    flex:1;
+    background-color: lightgreen;
 }
 
 .selected-component {

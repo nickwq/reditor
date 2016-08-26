@@ -7,7 +7,6 @@ class Reditor extends React.Component {
     render() {
         const { dispatch, selectHandler, components } = this.props;
         const createAction = function(index) {
-            console.log('loging... index', index)
 
             return {
                 type:'select',
@@ -15,8 +14,8 @@ class Reditor extends React.Component {
             }
         };
         return (
-            <div>
-                <Schema onSelect={index=>dispatch(createAction(index))} comps={components}></Schema>
+            <div id="reditor-body">
+                <Schema  onSelect={index=>dispatch(createAction(index))} comps={components}></Schema>
                 <Table onSelect={index=>dispatch(createAction(index))} comps={components}></Table>
             </div>
         );

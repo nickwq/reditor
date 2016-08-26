@@ -3,7 +3,6 @@ import React from 'react';
 export default class Table extends React.Component {
     render() {
         const {comps} = this.props;
-        console.log('loging...hahah', comps);
 
         const table = this.props.comps.map(
             (comp, index) => (
@@ -15,7 +14,7 @@ export default class Table extends React.Component {
             )
         );
         return (
-            <ul>{table}</ul>
+            <ul id="table-body">{table}</ul>
         );
     }
 }

@@ -12,7 +12,7 @@ export default class Schema extends React.Component {
             )
         );
         return (
-            <ul>{schema}</ul>
+            <ul id="schema-body">{schema}</ul>
         );
     }
 }
