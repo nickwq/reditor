@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
+var DashboardPlugin = require('webpack-dashboard/plugin');
 
 var ROOT_PATH = path.resolve(__dirname);
 
@@ -42,6 +43,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new HtmlwebpackPlugin({
             title: 'reditor'
-        })
+        }),
+        new DashboardPlugin()
     ]
 };
