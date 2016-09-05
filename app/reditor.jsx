@@ -1,29 +1,35 @@
 import React from 'react';
-import Schema from './schema.jsx';
-import Table from './table.jsx';
+import Schema from './components/schema.jsx';
+import Table from './components/table.jsx';
+import {bindActionCreators} from  'redux';
 import {connect} from 'react-redux';
+
+import * as componentActions from '../app/actions/componentActions';
 
 class Reditor extends React.Component {
     render() {
-        const { dispatch, selectHandler, components } = this.props;
-        const createAction = function(index) {
-
-            return {
-                type:'select',
-                index: index
-            }
-        };
+        function onSelectComponent(index) {
+            this.props.actions.selectComponent(index);
+        }
         return (
             <div id="reditor-body">
-                <Schema  onSelect={index=>dispatch(createAction(index))} comps={components}></Schema>
-                <Table onSelect={index=>dispatch(createAction(index))} comps={components}></Table>
+                <Schema  onSelect={index=>onSelectComponent(index)} comps={this.props.components}></Schema>
+                <Table onSelect={index=>onSelectComponent(index)} comps={this.props.components}></Table>
             </div>
         );
     }
 }
 
-function select(state) {
-    return state;
+function mapStateToProps(state) {
+    return {
+        components: state.components
+    };
 }
 
-export default connect(select)(Reditor)
+function mapDispatchToProps(dispatch){
+    return {
+        actions: bindActionCreators(componentActions, dispatch)
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Reditor)
