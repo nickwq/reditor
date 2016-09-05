@@ -1,7 +1,7 @@
 
 export default function componentReducer(state=[], action) {
     switch (action.type) {
-        case 'select':
+        case 'SELECT_COMPONENT':
             return state.map((comp, index) => {
                 if (index === action.index) {
                     return Object.assign({}, comp, {

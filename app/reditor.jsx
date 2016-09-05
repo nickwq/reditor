@@ -7,14 +7,16 @@ import {connect} from 'react-redux';
 import * as componentActions from '../app/actions/componentActions';
 
 class Reditor extends React.Component {
+    onSelectComponent(index) {
+        this.props.actions.selectComponent(index);
+    }
+
     render() {
-        function onSelectComponent(index) {
-            this.props.actions.selectComponent(index);
-        }
+
         return (
             <div id="reditor-body">
-                <Schema  onSelect={index=>onSelectComponent(index)} comps={this.props.components}></Schema>
-                <Table onSelect={index=>onSelectComponent(index)} comps={this.props.components}></Table>
+                <Schema onSelect={index=>this.onSelectComponent(index)} comps={this.props.components}></Schema>
+                <Table onSelect={index=>this.onSelectComponent(index)} comps={this.props.components}></Table>
             </div>
         );
     }
@@ -26,10 +28,10 @@ function mapStateToProps(state) {
     };
 }
 
-function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch) {
     return {
         actions: bindActionCreators(componentActions, dispatch)
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Reditor)
+export default connect(mapStateToProps, mapDispatchToProps)(Reditor);
