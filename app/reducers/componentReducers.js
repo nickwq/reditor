@@ -10,6 +10,8 @@ export default function componentReducer(state=[], action) {
                 }
                 return comp;
             });
+        case 'LOAD_COMPONENTS_SUCCESS':
+            return action.components;
         default:
             return state;
     }
